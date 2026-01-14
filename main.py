@@ -41,7 +41,7 @@ def main():
         df, stores = processor.load_data(local_data_dir=local_data_dir)
         print(f"Loaded {len(df)} records")
     except Exception as e:
-        print(f"\n❌ Error loading data: {e}")
+        print(f"\n[ERROR] Error loading data: {e}")
         print("\nTroubleshooting:")
         print("  1. Ensure kagglehub is configured with valid credentials")
         print("  2. Or place train.csv and store.csv in a 'data/' directory")
@@ -88,14 +88,14 @@ def main():
     plt.savefig(os.path.join(config.OUTPUT_DIR, "store_sales.png"), 
                 dpi=config.FIGURE_DPI, bbox_inches='tight')
     plt.close()
-    print(f"  ✓ Saved: {config.OUTPUT_DIR}/store_sales.png")
+    print(f"  [OK] Saved: {config.OUTPUT_DIR}/store_sales.png")
     
     # Plot 2: Sales vs rolling mean
     fig = visualizer.plot_sales_vs_rolling_mean(store_df, 1)
     plt.savefig(os.path.join(config.OUTPUT_DIR, "sales_rolling_mean.png"), 
                 dpi=config.FIGURE_DPI, bbox_inches='tight')
     plt.close()
-    print(f"  ✓ Saved: {config.OUTPUT_DIR}/sales_rolling_mean.png")
+    print(f"  [OK] Saved: {config.OUTPUT_DIR}/sales_rolling_mean.png")
     
     # Plot 3: Prediction vs actual
     fig = visualizer.plot_prediction_vs_actual(
@@ -105,7 +105,7 @@ def main():
     plt.savefig(os.path.join(config.OUTPUT_DIR, "prediction_vs_actual.png"), 
                 dpi=config.FIGURE_DPI, bbox_inches='tight')
     plt.close()
-    print(f"  ✓ Saved: {config.OUTPUT_DIR}/prediction_vs_actual.png")
+    print(f"  [OK] Saved: {config.OUTPUT_DIR}/prediction_vs_actual.png")
     
     # Plot 4: Error distribution
     errors = results['actual'] - results['predictions']
@@ -113,21 +113,21 @@ def main():
     plt.savefig(os.path.join(config.OUTPUT_DIR, "error_distribution.png"), 
                 dpi=config.FIGURE_DPI, bbox_inches='tight')
     plt.close()
-    print(f"  ✓ Saved: {config.OUTPUT_DIR}/error_distribution.png")
+    print(f"  [OK] Saved: {config.OUTPUT_DIR}/error_distribution.png")
     
     # Plot 5: Absolute error histogram
     fig = visualizer.plot_absolute_error_histogram(errors)
     plt.savefig(os.path.join(config.OUTPUT_DIR, "absolute_error_histogram.png"), 
                 dpi=config.FIGURE_DPI, bbox_inches='tight')
     plt.close()
-    print(f"  ✓ Saved: {config.OUTPUT_DIR}/absolute_error_histogram.png")
+    print(f"  [OK] Saved: {config.OUTPUT_DIR}/absolute_error_histogram.png")
     
     # Plot 6: Promo effect
     fig = visualizer.plot_promo_effect(df_model)
     plt.savefig(os.path.join(config.OUTPUT_DIR, "promo_effect.png"), 
                 dpi=config.FIGURE_DPI, bbox_inches='tight')
     plt.close()
-    print(f"  ✓ Saved: {config.OUTPUT_DIR}/promo_effect.png")
+    print(f"  [OK] Saved: {config.OUTPUT_DIR}/promo_effect.png")
     
     # XAI Analysis
     print("\nGenerating XAI explanations...")
@@ -144,19 +144,19 @@ def main():
     plt.savefig(os.path.join(config.OUTPUT_DIR, "feature_importance.png"), 
                 dpi=config.FIGURE_DPI, bbox_inches='tight')
     plt.close()
-    print(f"  ✓ Saved: {config.OUTPUT_DIR}/feature_importance.png")
+    print(f"  [OK] Saved: {config.OUTPUT_DIR}/feature_importance.png")
     
     # SHAP summary plot
     fig = visualizer.plot_shap_summary(shap_values, X_test_sample, max_display=10)
     plt.savefig(os.path.join(config.OUTPUT_DIR, "shap_summary.png"), 
                 dpi=config.FIGURE_DPI, bbox_inches='tight')
     plt.close()
-    print(f"  ✓ Saved: {config.OUTPUT_DIR}/shap_summary.png")
+    print(f"  [OK] Saved: {config.OUTPUT_DIR}/shap_summary.png")
     
     # Save model
     model_path = os.path.join(config.OUTPUT_DIR, "sales_model.pkl")
     model.save_model(model_path)
-    print(f"\n  ✓ Saved: {model_path}")
+    print(f"\n  [OK] Saved: {model_path}")
     
     # Save processed data for UI
     import pickle
@@ -171,7 +171,7 @@ def main():
             'shap_values': shap_values,
             'X_test_sample': X_test_sample
         }, f)
-    print(f"  ✓ Saved: {data_path}")
+    print(f"  [OK] Saved: {data_path}")
     
     print("\n" + "=" * 60)
     print("All tasks completed successfully!")
