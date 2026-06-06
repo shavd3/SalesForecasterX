@@ -1,6 +1,21 @@
-# Sales Prediction Model with XAI
+<div align="center">
 
-A time series sales prediction model using XGBoost with Explainable AI (XAI) capabilities. This project predicts daily sales using past trends and business factors like promotions, with interactive visualizations and model interpretability.
+# SalesForecasterX
+
+### Sales Prediction Model with Explainable AI
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![XGBoost](https://img.shields.io/badge/XGBoost-006400?style=for-the-badge&logo=python&logoColor=white)
+![SHAP](https://img.shields.io/badge/SHAP-XAI-FF6B6B?style=for-the-badge&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![scikit-learn](https://img.shields.io/badge/scikit--learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+
+A time series sales prediction model using XGBoost with Explainable AI (XAI) capabilities. Predicts daily sales using historical trends and business factors like promotions — with full SHAP-based interpretability so you can trust and understand every prediction.
+
+</div>
+
+---
 
 ## Features
 
